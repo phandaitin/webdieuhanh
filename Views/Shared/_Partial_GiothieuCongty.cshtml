@@ -1,0 +1,76 @@
+﻿@model HomeVM
+
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+        @foreach (var item in Model.Cauhinh)
+        {
+            <div class="row justify-content-end">
+                <div class="col-lg-11">
+                    <div class="row justify-content-end">
+
+
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-emoji-smile"></i>
+                                <span data-purecounter-start="0" data-purecounter-end=@item.Khachhanghailong data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Khách hàng hài lòng</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-journal-richtext"></i>
+                                <span data-purecounter-start="0" data-purecounter-end=@item.Duandathicong data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Dự án đã thi công</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-clock"></i>
+                                <span data-purecounter-start="0" data-purecounter-end=@item.Namkinhnghiem data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Năm kinh nghiệm</p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-5 col-6 d-md-flex align-items-md-stretch">
+                            <div class="count-box">
+                                <i class="bi bi-award"></i>
+                                <span data-purecounter-start="0" data-purecounter-end=@item.Giaithuong data-purecounter-duration="1" class="purecounter"></span>
+                                <p>Giải thưởng</p>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-lg-6 video-box align-self-baseline" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="~/assets/img/@item.Thumbnail" class="img-fluid" alt="">
+                    <a href="@item.Videogioithieucongty" class="glightbox play-btn mb-4"></a>
+                </div>
+
+                <div class="col-lg-6 pt-3 pt-lg-0 content">
+                    <h1>@item.Taisaolachungtoi</h1>
+                    <p class="fst-italic">
+                        @item.Gioithieucongty
+                    </p>
+                    <ul>
+                        <li><i class="bx bx-check-double"></i> @item.Camket1</li>
+                        <li><i class="bx bx-check-double"></i> @item.Camket2</li>
+                        <li><i class="bx bx-check-double"></i> @item.Camket3</li>
+                        <li><i class="bx bx-check-double"></i> @item.Camket4</li>
+                        <li><i class="bx bx-check-double"></i> @item.Camket5</li>
+                    </ul>
+                    <p>
+                        @item.Ketluan
+                    </p>
+                </div>
+
+            </div>
+        }
+    </div>
+</section>

@@ -1,0 +1,67 @@
+﻿@model IEnumerable<VNETC_WebApp.Areas.Admin.Data.TTeam>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Avarta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hoten)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chucvu)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bangcap1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bangcap2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Bangcap3)
+            </th>
+            
+            <th>Chức năng</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Avarta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hoten)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chucvu)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bangcap1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bangcap2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bangcap3)
+            </td>
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.TeamId">Edit</a> |                
+                <a asp-action="Delete" asp-route-id="@item.TeamId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

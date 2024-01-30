@@ -1,0 +1,49 @@
+﻿@model IEnumerable<VNETC_WebApp.Areas.Admin.Data.TDichvu>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+    int i = 0;
+}
+
+<h1>Dịch vụ chính</h1>
+
+<p>
+    <a asp-action="Create">Tạo mới</a> &nbsp; &nbsp; &nbsp; <span>  (Đảm bảo có đúng 6 dịch vụ) </span>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                TT
+            </th>
+            <th>
+                Tên dịch vụ
+            </th>
+            <th>
+                Mô tả dịch vụ
+            </th>
+            <th>Thao tác</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
+{
+        <tr>
+            
+            <td>@(++i)</td>
+             
+            <td>
+                @Html.DisplayFor(modelItem => item.TenDv)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mota)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.DichvuId">Sửa</a> |
+                <a asp-action="Delete" asp-route-id="@item.DichvuId">Xóa</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,70 @@
+﻿@model IEnumerable<VNETC_WebApp.Areas.Admin.Data.TPost>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Danh mục bài viết</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Tên bài viết
+            </th>
+          
+            <th>
+                Chủ đầu tư
+            </th>
+            <th>
+                Tên công trình
+            </th>
+           
+            
+            <th>
+                Ngày thực hiện
+            </th>
+            <th>
+                Ngày hoàn thành
+            </th>
+           
+            <th>
+                
+                    <a asp-action="Create">Create New</a>
+                
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.PostId">
+                    @Html.DisplayFor(modelItem => item.PostName)
+                </a>
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.Tencongtrinh)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Chudautu)
+            </td>
+           
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeStart )
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeEnd  )
+            </td>
+           
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.PostId">Edit</a> |                 
+                <a asp-action="Delete" asp-route-id="@item.PostId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

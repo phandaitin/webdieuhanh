@@ -1,0 +1,61 @@
+﻿@model HomeVM
+@{    
+    var itemDV = Model.Dichvu;
+}
+
+<section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+            <h2>Services</h2>
+            <p>Dịch vụ chính</p>
+        </div>
+
+        <div class="row" data-aos="fade-up" data-aos-delay="200">
+
+            <div class="col-md-6">
+                <div class="icon-box">
+                    <i class="bi bi-laptop"></i>
+                    <h4> @itemDV[0].TenDv </h4>
+                    <p> @itemDV[0].Mota</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+                <div class="icon-box">
+                    <i class="bi bi-bar-chart"></i>
+                    <h4> @itemDV[1].TenDv </h4>
+                    <p> @itemDV[1].Mota</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+                <div class="icon-box">
+                    <i class="bi bi-brightness-high"></i>
+                    <h4> @itemDV[2].TenDv </h4>
+                    <p> @itemDV[2].Mota</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+                <div class="icon-box">
+                    <i class="bi bi-briefcase"></i>
+                    <h4> @itemDV[3].TenDv </h4>
+                    <p> @itemDV[3].Mota</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+                <div class="icon-box">
+                    <i class="bi bi-card-checklist"></i>
+                    <h4> @itemDV[4].TenDv </h4>
+                    <p> @itemDV[4].Mota</p>
+                </div>
+            </div>
+            <div class="col-md-6 mt-4 mt-md-0">
+                <div class="icon-box">
+                    <i class="bi bi-clock"></i>
+                    <h4> @itemDV[5].TenDv </h4>
+                    <p> @itemDV[5].Mota</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>

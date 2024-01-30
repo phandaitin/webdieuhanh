@@ -1,0 +1,113 @@
+﻿@model IEnumerable<VNETC_WebApp.Areas.Admin.Data.TPost>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <partial name="_Partial_Head.cshtml" />
+</head>
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <partial name="_Partial_Header_1.cshtml" />
+
+    <!-- ======= Breadcrumbs ======= -->
+
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+
+            <div class="d-flex justify-content-between align-items-center">
+                <h1>
+                    <marquee direction="left" loop="true" onmouseover="this.stop();" onmouseout="this.start();">
+                        CÔNG TY CỔ PHẦN THÍ NGHIỆM CƠ ĐIỆN VIỆT NAM
+                    </marquee>
+                </h1>
+
+                <ol>
+                </ol>
+            </div>
+
+        </div>
+    </section>
+
+
+
+
+    <main id="main">
+        @RenderBody()
+
+        <!-- ======= Portfolio Details Section ======= -->
+        <section id="portfolio-details" class="portfolio-details">
+            <div class="container">
+
+                <div class="row gy-4">
+
+                    @foreach (var item in Model)
+                    {
+                        <div class="col-lg-8">
+                            <div class="portfolio-details-slider swiper">
+                                <div class="swiper-wrapper align-items-center">
+
+                                    <div class="swiper-slide">
+                                        <img src="~/assets/img/post/@item.Thumb1" alt="Hinh1">
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <img src="~/assets/img/post/@item.Thumb2" alt="Hinh2">
+                                    </div>
+
+                                    <div class="swiper-slide">
+                                        <img src="~/assets/img/post/@item.Thumb3" alt="Hinh3">
+                                    </div>
+
+                                </div>
+                                <div class="swiper-pagination"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-4">
+                            <div class="portfolio-info">
+                                <h3>Thông tin công trình</h3>
+                                <ul>
+                                    <li><strong>Công trình</strong>: @item.Tencongtrinh</li>
+                                    <li><strong>Chủ đầu tư</strong>: @item.Chudautu</li>
+                                    <li><strong>Website</strong>    : <a href="@item.Website">  @item.Website </a></li>
+                                    <li><strong>Ngày thực hiện </strong>: @item.TimeStart.Value.ToString("dd/MM/yyyy")  </li>
+                                    <li><strong>Ngày hoàn thành </strong>: @item.TimeEnd.Value.ToString("dd/MM/yyyy")</li>
+                                    <li><strong>Tin bài</strong>: @item.Author </li>
+                                </ul>
+                            </div>
+                            <div class="portfolio-description">
+                                <h2>@item.PostName</h2>
+                                <p>
+                                    @item.Content
+                                </p>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+     
+            
+            
+
+
+            <!-- ======= Footer ======= -->
+            <partial name="_Partial_Footer_1.cshtml" />
+
+            <!-- ======= preload anf backtotop ======= -->
+            <div id="preloader"></div>
+            <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+            <!-- ======= Footer ======= -->
+            <partial name="_Partial_Scripst.cshtml" />
+
+</body>
+
+</html>

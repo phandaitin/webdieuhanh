@@ -1,0 +1,45 @@
+﻿@model VNETC_WebApp.Areas.Admin.Data.TKhachhang
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>TKhachhang</h4>
+<hr />
+<div class="row">
+    <div class="col-md-8">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="KhachhangId" />
+            
+            <div class="form-group">
+                <label asp-for="Hoten" class="control-label"></label>
+                <input asp-for="Hoten" class="form-control" />
+                <span asp-validation-for="Hoten" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Chucvu" class="control-label"></label>
+                <input asp-for="Chucvu" class="form-control" />
+                <span asp-validation-for="Chucvu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Noidungdanhgia" class="control-label"></label>               
+                <textarea rows="5"  asp-for="Noidungdanhgia" class="form-control" ></textarea>
+                <span asp-validation-for="Noidungdanhgia" class="text-danger"></span>
+            </div>
+            
+            <hr />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

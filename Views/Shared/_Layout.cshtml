@@ -1,0 +1,283 @@
+﻿ 
+@model HomeVM
+@{ 
+    string BaseAddress = VNETC_WebApp.Areas.Admin.Public.ClsPublic._BaseAddress;
+
+    var itemNN = Model.Nganhnghe;
+    var itemDV = Model.Dichvu;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>   
+    <partial name="_Partial_Head.cshtml" />
+</head>
+
+
+
+<body>
+
+    <!-- ======= Header ======= -->
+    <partial name="_Partial_Header.cshtml" />
+    <!-- ======= Hero Section ======= -->
+    <section id="hero">
+        <div class="hero-container" data-aos="fade-up" data-aos-delay="150">
+            @foreach (var item in Model.Cauhinh)
+            {
+                <h1> @item.Welcome </h1>
+                <h2> @item.Chungtoila </h2>
+            }
+         
+        </div>
+    </section>
+
+    <main id="main">
+
+        @RenderBody()
+
+        <!-- ======= section kh hài lòng & giới thiệu công ty======= -->
+        <partial name="_Partial_GiothieuCongty.cshtml" />
+
+        <!-- ======= Section Kế hoạch - Tầm nhìn - Sứ mệnh  ======= -->
+        <partial name="_Partial_TamnhinSumenh.cshtml" />
+
+
+        <!-- ======= Đối tác - Chi nhánh Section ======= -->
+        <partial name="_Partial_Doitac.cshtml" />
+
+        <!-- ======= Ngành nghề ======= -->
+        <section id="features" class="features">
+
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>Business</h2>
+                    <p>Ngành nghề</p>
+                </div>
+
+                <ul class="nav nav-tabs row d-flex">
+
+                    <li class="nav-item col-3">
+                        <a class="nav-link active show" data-bs-toggle="tab" href="#tab-1">
+                            <i class="ri-gps-line"></i>
+                            <h4 class="d-none d-lg-block"> @itemNN[0].Tennganhnghe1</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-2">
+                            <i class="ri-body-scan-line"></i>
+                            <h4 class="d-none d-lg-block">@itemNN[0].Tennganhnghe2</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-3">
+                            <i class="ri-sun-line"></i>
+                            <h4 class="d-none d-lg-block">@itemNN[0].Tennganhnghe3</h4>
+                        </a>
+                    </li>
+                    <li class="nav-item col-3">
+                        <a class="nav-link" data-bs-toggle="tab" href="#tab-4">
+                            <i class="ri-store-line"></i>
+                            <h4 class="d-none d-lg-block">@itemNN[0].Tennganhnghe4</h4>
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content">
+
+                    <div class="tab-pane active show" id="tab-1">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <h3>
+                                    @itemNN[0].TenCongty
+                                </h3>
+                                <p class="fst-italic">
+                                    @itemNN[0].Gioithieu
+                                </p>
+                                <ul>
+                                    <li><i class="ri-check-double-line"></i>  @itemNN[0].Tenviettat</li>
+                                    <li><i class="ri-check-double-line"></i>  @itemNN[0].Mst</li>
+                                    <li><i class="ri-check-double-line"></i>  @itemNN[0].Nguoidaidien</li>
+                                    <li><i class="ri-check-double-line"></i>  @itemNN[0].DiaChi</li>
+                                    <li><i class="ri-check-double-line"></i>  @itemNN[0].Dienthoai</li>
+                                    <li><i class="ri-check-double-line"></i>  @itemNN[0].Email</li>
+                                    <li><i class="ri-check-double-line"></i>  @itemNN[0].Loaihinhdoanhnghiep</li>
+                                    <li><i class="ri-check-double-line"></i>  @itemNN[0].SoDkkd</li>
+                                    <li><i class="ri-check-double-line"></i>  @itemNN[0].Quanlyboi</li>
+                                </ul>
+
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Ngành nghề đăng ký </h5>
+                                    <!-- Default Table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col">Mã</th>
+                                                <th scope="col">Ngành</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.NganhngheCt1)
+                                            {
+                                                <tr>
+                                                    <td>@item.MaNn</td>
+                                                    <td>@item.TenNn</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <!-- End Default Table Example -->
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="~/assets/img/nganhnghe/@itemNN[0].Thumbnganhnghe1" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab-2">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+
+                                <div class="card-body">
+                                    <h5 class="card-title">Ngành nghề đăng ký </h5>
+                                    <!-- Default Table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col">Mã</th>
+                                                <th scope="col">Ngành</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.NganhngheCt2)
+                                            {
+                                                <tr>
+                                                    <td>@item.MaNn</td>
+                                                    <td>@item.TenNn</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <!-- End Default Table Example -->
+                                </div>
+
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="~/assets/img/nganhnghe/@itemNN[0].Thumbnganhnghe2" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane" id="tab-3">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ngành nghề đăng ký </h5>
+                                    <!-- Default Table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col">Mã</th>
+                                                <th scope="col">Ngành</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.NganhngheCt3)
+                                            {
+                                                <tr>
+                                                    <td>@item.MaNn</td>
+                                                    <td>@item.TenNn</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <!-- End Default Table Example -->
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="~/assets/img/nganhnghe/@itemNN[0].Thumbnganhnghe3" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="tab-4">
+                        <div class="row">
+                            <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0">
+                                <div class="card-body">
+                                    <h5 class="card-title">Ngành nghề đăng ký </h5>
+                                    <!-- Default Table -->
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+
+                                                <th scope="col">Mã</th>
+                                                <th scope="col">Ngành</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model.NganhngheCt4)
+                                            {
+                                                <tr>
+                                                    <td>@item.MaNn</td>
+                                                    <td>@item.TenNn</td>
+                                                </tr>
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <!-- End Default Table Example -->
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-1 order-lg-2 text-center">
+                                <img src="~/assets/img/nganhnghe/@itemNN[0].Thumbnganhnghe4" alt="" class="img-fluid">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ======= Dịch vụ Section ======= -->
+
+        <partial name="_Partial_Dichvuchinh" />
+
+        <!-- ======= Đánh giá khách hàng Section ======= -->
+        <partial name="_Partial_Khachang_danhgia" />
+
+        <!-- ======= Công trình thi công Section ======= -->
+        <partial name="_Partial_Congtrinh"/>
+
+        <!-- ======= Team Section ======= -->
+        <partial name="_Partial_Team.cshtml" />
+
+
+        <!-- ======= Contact Section ======= -->
+        <partial name="_Partial_Lienhe" />
+
+
+    </main><!-- End #main -->
+    <!-- ======= Footer ======= -->
+    <partial name="_Partial_Footer.cshtml" />
+
+    <!-- ======= preload anf backtotop ======= -->
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+    <!-- ======= Footer ======= -->
+    <partial name="_Partial_Scripst.cshtml" />
+
+
+
+
+
+</body>
+
+</html>
+
+

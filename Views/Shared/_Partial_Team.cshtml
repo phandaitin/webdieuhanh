@@ -1,0 +1,37 @@
+﻿@model HomeVM
+
+    <section id="team" class="team section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Team</h2>
+                <p>Đội ngũ</p>
+            </div>
+            <div class="row">
+                @foreach (var item in Model.Team)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="member" data-aos="fade-up" data-aos-delay="100">
+
+                            <div class="pic"><img src="~/assets/img/team/@item.Avarta" height="360" width="350" alt="Image" /></div>
+
+                            <div class="member-info">
+                                <h4>@item.Hoten </h4>
+                                <h6>@item.Chucvu</h6>
+                                <span>@item.Bangcap1</span>
+                                <span>@item.Bangcap2</span>
+                                <span>@item.Bangcap3</span>
+                                <div class="social">
+                                    <a href="@item.Facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                                    <a href="#" target="_blank"> <i class="bi bi-instagram"></i></a>
+                                    <a href="#" target="_blank"> <i class="bi bi-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            </div>
+
+    </section>

@@ -1,0 +1,51 @@
+﻿@model VNETC_WebApp.Areas.Admin.Data.TPost
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Xóa bài viết</h1>
+
+<h3>Bạn chắc chắn muốn xóa?</h3>
+<div>
+ 
+    <hr />
+    <dl class="row">
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tencongtrinh)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tencongtrinh)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chudautu)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chudautu)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Website)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Website)
+        </dd>
+
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PostName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PostName)
+        </dd>
+        
+         
+
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="PostId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
