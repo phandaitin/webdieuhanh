@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\tinpd.EVNCPC\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\tinpd.EVNCPC\\.nuget\\packages"
+    ]
+  }
+}
