@@ -44,7 +44,7 @@ Scaffold-DbContext "Data Source=.  ;  Initial Catalog=webdieuhanh  ;  User ID= w
 
 
 
-
+ 
 ###
 
 USE [WEBDIEUHANH]
@@ -80,6 +80,66 @@ CREATE TABLE [dbo].[T_User](
  CONSTRAINT [PK_T_User] PRIMARY KEY CLUSTERED 
 (
 	[UserId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+CREATE TABLE [dbo].[T_Laixe](
+	[LaixeId] [int] IDENTITY(1,1) NOT NULL,
+	[Hoten] [nvarchar](50) NOT NULL,
+	[Email] [varchar](50) NULL,
+	[Phone1] [varchar](50) NOT NULL,
+	[Phone2] [varchar](50) NULL,
+	[Phone3] [varchar](50) NULL,
+	[DOB] [date] NULL,
+	[MaDv] [varchar](50) NOT NULL,
+ CONSTRAINT [PK_T_Laixe] PRIMARY KEY CLUSTERED 
+(
+	[LaixeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[T_Loaicongtrinh](
+	[LoaicongtrinhId] [int] IDENTITY(1,1) NOT NULL,
+	[Tenloaicongtrinh] [nvarchar](50) NOT NULL,
+	[Ghichu] [nvarchar](500) NULL,
+ CONSTRAINT [PK_T_Loaicongtrinh] PRIMARY KEY CLUSTERED 
+(
+	[LoaicongtrinhId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+CREATE TABLE [dbo].[T_Loaixe](
+	[LoaixeId] [int] IDENTITY(1,1) NOT NULL,
+	[Tenloaixe] [nvarchar](50) NOT NULL,
+	[Ghichu] [nvarchar](500) NULL,
+ CONSTRAINT [PK_T_Loaixe] PRIMARY KEY CLUSTERED 
+(
+	[LoaixeId] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+CREATE TABLE [dbo].[T_Xe](
+	[XeId] [int] IDENTITY(1,1) NOT NULL,
+	[Soxe] [varchar](50) NOT NULL,
+	[Loaixe] [nvarchar](50) NOT NULL,
+	[NgayDangKiem] [date] NULL,
+	[HanBaoHiem] [date] NULL,
+	[NgayDaiTuGanNhat] [date] NULL,
+	[Tinhtrang] [varchar](50) NOT NULL,
+	[MaDv] [nvarchar](50) NOT NULL,
+	[LaixeId] [nvarchar](50) NOT NULL,
+	[Ghichu] [nvarchar](500) NULL,
+ CONSTRAINT [PK_T_Xe] PRIMARY KEY CLUSTERED 
+(
+	[XeId] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
