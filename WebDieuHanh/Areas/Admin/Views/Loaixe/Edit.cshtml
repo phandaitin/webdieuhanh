@@ -1,0 +1,38 @@
+﻿@model WebApp.Areas.Admin.Data.TLoaixe
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>TLoaixe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="LoaixeId" />
+            <div class="form-group">
+                <label asp-for="Tenloaixe" class="control-label"></label>
+                <input asp-for="Tenloaixe" class="form-control" />
+                <span asp-validation-for="Tenloaixe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ghichu" class="control-label"></label>
+                <input asp-for="Ghichu" class="form-control" />
+                <span asp-validation-for="Ghichu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+ 

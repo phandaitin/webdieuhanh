@@ -1,0 +1,69 @@
+﻿@model WebApp.Areas.Admin.Data.TLaixe
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h1>Create</h1>
+
+<h4>TLaixe</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Hoten" class="control-label"></label>
+                <input asp-for="Hoten" class="form-control" />
+                <span asp-validation-for="Hoten" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone1" class="control-label"></label>
+                <input asp-for="Phone1" class="form-control" />
+                <span asp-validation-for="Phone1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone2" class="control-label"></label>
+                <input asp-for="Phone2" class="form-control" />
+                <span asp-validation-for="Phone2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Phone3" class="control-label"></label>
+                <input asp-for="Phone3" class="form-control" />
+                <span asp-validation-for="Phone3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dob" class="control-label"></label>
+                <input asp-for="Dob" class="form-control" type="date" />
+                <span asp-validation-for="Dob" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="MaDv" class="control-label"></label>
+                <select asp-for="MaDv" class="form-select" asp-items="ViewBag.MaDv">
+                    <option value=-1 selected>  </option>
+                </select>
+                <span asp-validation-for="MaDv" class="text-danger"></span>
+            </div>
+             
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@
