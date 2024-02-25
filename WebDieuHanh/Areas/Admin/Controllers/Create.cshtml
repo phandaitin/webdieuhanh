@@ -1,0 +1,166 @@
+﻿@using WebApp.Areas.Admin.Public
+@model WebApp.Areas.Admin.Data.TDieudong
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3>Đăng ký xe</h3>
+
+<div class="col-lg-12">
+
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title"> Đăng ký xe</h5> 
+
+            <form asp-action="Create">
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Đơn vị đăng ký</label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" asp-for="MaDv" value="@ClsPublic._MaDv" disabled>
+                        <input type="text" class="form-control" name="MaDv" value="@ClsPublic._MaDv" hidden>
+                    </div>
+                    <div class="col-sm-7">
+                        <input type="text" class="form-control" asp-for="TenDv" value="@ClsPublic._Fullname" disabled>
+                        <input type="text" class="form-control" asp-for="TenDv" value="@ClsPublic._Fullname" hidden>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Ngày đăng ký</label>
+                    <div class="col-sm-3">
+                        <input class="form-control" name="NgayDk" value="@DateTime.Today.ToShortDateString()" disabled>
+                        <input class="form-control" name="NgayDk" value="@DateTime.Today.ToShortDateString()" hidden>
+                    </div>
+
+                    <label for="inputText" class="col-sm-2 col-form-label">Ngày thực hiện </label>
+                    <div class="col-sm-5">
+                        <input type="date" class="form-control" asp-for="NgayTh">
+                    </div>
+                    <span asp-validation-for="NgayTh" class="text-danger"></span>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputPassword" class="col-sm-2 col-form-label">Nội dung công việc</label>
+                    <div class="col-sm-10">
+                        <textarea class="form-control" asp-for="Noidung" style="height: 100px"></textarea>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Loại xe </label>
+                    <div class="col-sm-4">
+                        <select asp-for="Tenloaixe" class="form-select" asp-items="ViewBag.Tenloaixe">
+                            <option value=-1 selected>  </option>
+                        </select>
+                    </div>
+
+                    <label for="inputText" class="col-sm-2 col-form-label">Loại công trình </label>
+                    <div class="col-sm-4">
+                        <select asp-for="Tenloaicongtrinh" class="form-select" asp-items="ViewBag.Tenloaicongtrinh">
+                            <option value=-1 selected>  </option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label for="inputText" class="col-sm-2 col-form-label">Tình trạng duyệt </label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" asp-for="Trangthaiduyet" value="Chờ duyệt" disabled>
+                        <input type="text" class="form-control" asp-for="Trangthaiduyet" value="Chờ duyệt" hidden>
+                    </div>
+                </div>
+
+              
+
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label"> </label>
+                    <div class="col-sm-10">
+                        <button type="submit" class="btn btn-primary">Đăng ký</button>
+                        <button asp-action="Index" class="btn btn-danger">Hủy</button>
+                    </div>
+                </div>
+
+
+            </form> 
+
+        </div>
+    </div>
+
+</div>
+
+@*<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="MaDv" class="control-label"></label>
+                <input asp-for="MaDv" value="@ClsPublic._MaDv.ToUpper()" class="form-control" readonly />                
+            </div>
+            <div class="form-group">
+                <label asp-for="TenDv" class="control-label"></label>
+                <input asp-for="TenDv" value="@ClsPublic._Fullname" class="form-control" readonly />                
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayDk" class="control-label"></label>
+                <input asp-for="NgayDk" class="form-control" type="date" />
+                <span asp-validation-for="NgayDk" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayTh" class="control-label"></label>
+                <input asp-for="NgayTh" class="form-control" type="date" />
+                <span asp-validation-for="NgayTh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tenloaixe" class="control-label"></label>
+                <input asp-for="Tenloaixe" class="form-control" />
+                <span asp-validation-for="Tenloaixe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Tenloaicongtrinh" class="control-label"></label>
+                <input asp-for="Tenloaicongtrinh" class="form-control" />
+                <span asp-validation-for="Tenloaicongtrinh" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Noidung" class="control-label"></label>
+                <input asp-for="Noidung" class="form-control" />
+                <span asp-validation-for="Noidung" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NgayDuyet" class="control-label"></label>
+                <input asp-for="NgayDuyet" class="form-control"  type="date" />
+                <span asp-validation-for="NgayDuyet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Soxe" class="control-label"></label>
+                <input asp-for="Soxe" class="form-control" />
+                <span asp-validation-for="Soxe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Hoten" class="control-label"></label>
+                <input asp-for="Hoten" class="form-control" />
+                <span asp-validation-for="Hoten" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Trangthaiduyet" class="control-label"></label>
+                <input asp-for="Trangthaiduyet" class="form-control" />
+                <span asp-validation-for="Trangthaiduyet" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Ghichu" class="control-label"></label>
+                <input asp-for="Ghichu" class="form-control" />
+                <span asp-validation-for="Ghichu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>*@
+
+
+ 
