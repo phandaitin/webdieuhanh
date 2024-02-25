@@ -1,0 +1,109 @@
+﻿@model IEnumerable<WebApp.Areas.Admin.Data.TDieudong>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<h3>Danh sách đăng ký</h3>
+ 
+    @*<table class="table">*@
+<table class="table datatable table-hover">
+
+        @if (ViewBag.MsgErr != null)
+        {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @ViewBag.MsgErr
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        }
+     
+
+        <thead>
+            <tr>
+                <th>
+                    Đơn vị đ.ký
+                </th>
+                <th>
+                    Ngày đ.ký
+                </th>
+                <th>
+                    Ngày thực hiện
+                </th>
+                <th>
+                    Loại xe
+                </th>
+                <th>
+                    Công trình
+                </th>
+                <th>
+                    Nội dung c.việc
+                </th>
+                <th>
+                    Duyệt
+                </th>
+
+                <th>
+                    <strong style="color:red">
+                        <a asp-action="Create">
+                            Đăng ký
+                        </a>
+                    </strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.DieudongId">@item.TenDv</a>
+                </td>
+                <td>
+                    @item.NgayDk.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @item.NgayTh.ToString("dd/MM/yyyy")
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tenloaixe)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tenloaicongtrinh)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Noidung)
+                </td>
+
+                <td class="text-center">
+                    @if (item.Trangthaiduyet == "Đã duyệt")
+                    {
+                        <span class="badge rounded-pill bg-success">@item.Trangthaiduyet</span>
+                    }
+                    @if (item.Trangthaiduyet == "Chờ duyệt")
+                    {
+                        <span class="badge rounded-pill bg-warning text-black">@item.Trangthaiduyet</span>
+                    }
+                    @if (item.Trangthaiduyet == "Không duyệt")
+                    {
+                        <span class="badge rounded-pill bg-danger text-white">@item.Trangthaiduyet</span>
+                    }
+
+                </td>
+                @if (User.Identity.Name == "vanphong")
+                {
+                    <td>
+                        <a asp-action="duyet" asp-route-id="@item.DieudongId">Xử lý</a> |                        
+                    </td>
+                }
+                @if (User.Identity.Name != "vanphong")
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.DieudongId">Edit</a> |
+                        <a asp-action="Delete" asp-route-id="@item.DieudongId">Delete</a>
+                    </td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
